@@ -1,0 +1,181 @@
+virtual-wardrobe-app/
+├── public/
+│   ├── index.html
+│   ├── favicon.ico
+│   └── ... (other static assets)
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   │   └── ... (image files)
+│   │   ├── icons/
+│   │   │   └── ... (icon files)
+│   │   └── styles/
+│   │       ├── main.css
+│   │       └── ... (other global styles)
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Button.js
+│   │   │   ├── Card.js
+│   │   │   └── ... (other reusable common components)
+│   │   ├── Header/
+│   │   │   ├── Header.js
+│   │   │   ├── Header.css
+│   │   │   └── Header.test.js
+│   │   ├── Footer/
+│   │   │   ├── Footer.js
+│   │   │   ├── Footer.css
+│   │   │   └── Footer.test.js
+│   │   ├── WardrobeItem/
+│   │   │   ├── WardrobeItem.js
+│   │   │   ├── WardrobeItem.css
+│   │   │   └── WardrobeItem.test.js
+│   │   └── ... (other reusable components)
+│   ├── pages/
+│   │   ├── Home/
+│   │   │   ├── Home.js
+│   │   │   ├── Home.css
+│   │   │   └── Home.test.js
+│   │   ├── Profile/
+│   │   │   ├── Profile.js
+│   │   │   ├── Profile.css
+│   │   │   └── Profile.test.js
+│   │   ├── Wardrobe/
+│   │   │   ├── Wardrobe.js
+│   │   │   ├── Wardrobe.css
+│   │   │   └── Wardrobe.test.js
+│   │   ├── OutfitPlanner/
+│   │   │   ├── OutfitPlanner.js
+│   │   │   ├── OutfitPlanner.css
+│   │   │   └── OutfitPlanner.test.js
+│   │   └── ... (other pages)
+│   ├── hooks/
+│   │   └── useWeather.js
+│   │   └── useEvents.js
+│   │   └── ... (other custom hooks)
+│   ├── services/
+│   │   ├── api.js
+│   │   ├── auth.js
+│   │   └── ... (other service functions)
+│   ├── context/
+│   │   ├── AuthContext.js
+│   │   ├── WardrobeContext.js
+│   │   └── ... (other context providers)
+│   ├── routes/
+│   │   ├── AppRouter.js
+│   │   └── ... (route configuration)
+│   ├── utils/
+│   │   └── helpers.js
+│   │   └── ... (utility functions and helper scripts)
+│   ├── App.js
+│   ├── index.js
+│   └── ... (other root-level files)
+└── package.json
+
+
+
+// src/SignUp.js
+import React, { useState } from 'react';
+
+const SignUp = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [password, setPassword] = useState('');
+  const [verificationCode, setVerificationCode] = useState('');
+  const [isVerified, setIsVerified] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!isVerified) {
+      alert('Please verify your mobile number before signing up.');
+      return;
+    }
+
+    // Implement sign-up logic here (e.g., send data to server)
+    console.log('Sign Up:', { firstName, lastName, email, mobile, password, verificationCode });
+  };
+
+  const handleSendVerificationCode = () => {
+    // Implement sending verification code to the user's mobile number
+    console.log('Sending verification code to:', mobile);
+    // Here you would typically interact with an API to send the verification code
+  };
+
+  const handleVerifyCode = () => {
+    // Implement verification code checking logic
+    // Example: Assuming the code is '1234' for demo purposes
+    if (verificationCode === '1234') {
+      setIsVerified(true);
+      alert('Mobile number verified successfully!');
+    } else {
+      alert('Invalid verification code. Please try again.');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>First Name:</label>
+          <input
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Email:</label>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Mobile No.:</label>
+          <input
+            type="text"
+            value={mobile}
+            onChange={(e) => setMobile(e.target.value)}
+          />
+          <button type="button" onClick={handleSendVerificationCode}>
+            Send Verification Code
+          </button>
+        </div>
+        <div>
+          <label>Verification Code:</label>
+          <input
+            type="text"
+            value={verificationCode}
+            onChange={(e) => setVerificationCode(e.target.value)}
+          />
+          <button type="button" onClick={handleVerifyCode}>
+            Verify Code
+          </button>
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  );
+};
+
+export default SignUp;
