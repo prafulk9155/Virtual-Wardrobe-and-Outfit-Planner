@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     // console.log("hello");
-    res.send("Main api from the server outfit planner!");
+    res.send("Main outfit planner api !");
 });
 
 router.post('/register', register);
