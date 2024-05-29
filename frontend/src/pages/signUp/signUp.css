@@ -1,13 +1,13 @@
 
 .box {
     max-width: 400px;
-    height: 35rem;
+    height: 45rem;
     margin: auto;
-    padding: 1em;
+    padding: 0.5em;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #50cce8;
+    background-image: linear-gradient(rgb(91, 199, 91),rgb(223, 223, 38));
 }
 
 .box h2 {
@@ -26,6 +26,7 @@
 
 .box-main label {
     display: block;
+    margin-bottom: 2rem;
     font-size: large;
     margin-bottom: 0.5em;
 }

@@ -22,8 +22,8 @@ function App() {
   return (
     <div className="App">
 
-    <SignIn/>
-    {/* <SignUp/> */}
+    {/* <SignIn/> */}
+    <SignUp/>
       {/* <service/> */}
       {/* <FetchDataComponent/> */}
       
