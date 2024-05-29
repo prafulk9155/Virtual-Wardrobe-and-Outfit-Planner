@@ -2,11 +2,12 @@
     margin-top: 2.5%;
     padding: 0%;
     justify-content: center;
+    /* background-color: #323c73; */
 }
 
 .box {
-    width: 350px;
-    height: 26rem;
+    width: auto;
+    height: auto;
     margin: auto;
     padding: 1em;
     border: 1px solid #ccc;
@@ -17,8 +18,9 @@
 
 .box h2 {
     text-align: center;
+    text-underline-position: below;
     margin-bottom: 1em;
-    color: #2073cd;
+    color: #e13303;
 }
 
 .box-main {
