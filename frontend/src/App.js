@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import SignIn from './pages/signIn/signIn';
 import SignUp from './pages/signUp/signUp';
@@ -20,14 +21,17 @@ function App() {
   fetchData()
   
   return (
-    <div className="App">
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/signUp" />} />
+        <Route path="/signUp" element={<SignUp />} />
+        <Route path="/signIn" element={<SignIn />} />
+        {/* Add other routes here */}
+      </Routes>
+    </Router>
 
-    {/* <SignIn/> */}
-    <SignUp/>
-      {/* <service/> */}
-      {/* <FetchDataComponent/> */}
-      
-    </div>
+   
+    
     
   );
 }

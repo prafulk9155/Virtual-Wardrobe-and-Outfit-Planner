@@ -2,13 +2,13 @@
     margin-top: 2.5%;
     padding: 0%;
     justify-content: center;
-    /* background-color: #323c73; */
 }
 
 .box {
-    width: auto;
-    height: auto;
-    margin: auto;
+    width: 50%;
+    height: 6%;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
     padding: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -63,3 +63,5 @@
 .box-main button:hover {
     background-color: #0056b3;
 }
+
+
