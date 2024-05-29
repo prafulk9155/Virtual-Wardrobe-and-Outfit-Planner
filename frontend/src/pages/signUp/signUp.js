@@ -41,7 +41,7 @@ const SignUp = () => {
 
   const fetchData = async (name, email, mobile, password) => {
     try {
-      const response = await fetch('https://signup/createAccount', {
+      const response = await fetch('signup/createAccount', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
