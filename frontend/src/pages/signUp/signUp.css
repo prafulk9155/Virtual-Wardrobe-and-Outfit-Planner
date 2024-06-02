@@ -1,18 +1,23 @@
-
+*{
+    margin: 0;
+    padding: 0;
+}
 .box {
-    max-width: 400px;
-    height: 45rem;
-    margin: auto;
-    padding: 0.5em;
+    width: 40%;
+    height: 95%;
+    margin-left: 20rem;
+    padding: 2rem;
+    position: fixed;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-image: linear-gradient(rgb(91, 199, 91),rgb(223, 223, 38));
 }
 
 .box h2 {
     text-align: center;
-    margin-bottom: 1em;
+    margin-top: -1rem;
+    
 }
 
 .box-main {
@@ -26,24 +31,25 @@
 
 .box-main label {
     display: block;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     font-size: large;
     margin-bottom: 0.5em;
 }
 
 .box-main input {
     width: 83%;
-    padding: 0.5em;
+    margin-top: 1%;
+    padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 40px;
 }
 
 .box-main button {
     width: 50%;
-    margin-top: 2rem;
-    margin-left: 5.5rem;
+    margin-top: 1rem;
+    margin-left: 7rem;
     padding: 0.75em;
-    background-color: #28a745;
+    background-color: #23b545;
     color: white;
     border: none;
     border-radius: 25px;
