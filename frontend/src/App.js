@@ -4,7 +4,11 @@ import './App.css';
 import SignIn from './pages/signIn/signIn';
 import SignUp from './pages/signUp/signUp';
 import { get, post } from './services/api.service';
+<<<<<<< HEAD
 import Home from './home/home';
+=======
+
+>>>>>>> 86d57869455c19294823ff70e13dc9677ff459d4
 // import FetchDataComponent from './services/FetchDataComponent';
 
 

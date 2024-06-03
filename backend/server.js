@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const cors = require('cors');
-const host = '192.168.41.242';
+const host = '192.168.161.242';
 
 // Load environment variables from .env file
 dotenv.config();
