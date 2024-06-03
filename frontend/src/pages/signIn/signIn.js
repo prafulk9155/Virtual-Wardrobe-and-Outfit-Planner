@@ -31,7 +31,7 @@ const SignIn = () => {
 
   const fetchData = async (email, password) => {
     try {
-      const response = await fetch('user/resister', {
+      const response = await fetch('signIn/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
