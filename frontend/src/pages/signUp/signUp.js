@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './signUp.css'; 
+import { get, post} from '../../services/api.service';
+
 
 const SignUp = () => {
-  const [name, setName] = useState('');
+  const [username, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [mobile, setMobile] = useState('');
+  const [phone, setMobile] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -14,7 +16,7 @@ const SignUp = () => {
     e.preventDefault();
 
     // Validation checks
-    if (!name) {
+    if (!username) {
       toast.error('Name is required');
       return;
     }
@@ -22,7 +24,7 @@ const SignUp = () => {
       toast.error('Email is required');
       return;
     }
-    if (!mobile) {
+    if (!phone) {
       toast.error('Mobile number is required');
       return;
     }
@@ -35,33 +37,24 @@ const SignUp = () => {
       return;
     }
 
-    console.log('Email: ', email, 'Password: ', password, 'Name: ', name, 'Mobile: ', mobile);
-    await fetchData(name, email, mobile, password);
+    console.log('Email: ', email, 'Password: ', password, 'Name: ', username, 'Mobile: ', phone);
+    await fetchData(username, email, phone, password);
   };
 
-  const fetchData = async (name, email, mobile, password) => {
+ 
+  const fetchData = async () => {
     try {
-      const response = await fetch('signup/createAccount', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, mobile, password }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        toast.success(`Welcome ${data.username}! Your account has been created.`);
-        // Handle successful signup
-      } else {
-        toast.error(data.message || 'Signup failed');
-      }
+        const data = await post("user/register", {
+          data:({ username, email, phone, password }),
+        });
+        console.log("Response from API:", data);
+console.log(data.data.message)
+        toast.success(data.data.message)
+        // setRDPList(data.RDPList);
     } catch (error) {
-      console.error("Error occurred while fetching data:", error);
-      toast.error('An error occurred. Please try again.');
+        console.error("Error occurred while fetching data:", error);
     }
-  };
+};
 
   return (
     <div className="box">
@@ -71,9 +64,9 @@ const SignUp = () => {
           <label>Name</label>
           <input
             type="text"
-            value={name}
+            value={username}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Enter first and last name"
+            placeholder="Enter first and last username"
           />
         </div>
         <div>
@@ -90,7 +83,7 @@ const SignUp = () => {
           <input
             type="number"
             placeholder='+91'
-            value={mobile}
+            value={phone}
             onChange={(e) => setMobile(e.target.value)}
           />
         </div>

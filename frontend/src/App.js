@@ -4,6 +4,7 @@ import './App.css';
 import SignIn from './pages/signIn/signIn';
 import SignUp from './pages/signUp/signUp';
 import { get, post } from './services/api.service';
+import Home from './home/home';
 // import FetchDataComponent from './services/FetchDataComponent';
 
 
@@ -21,14 +22,15 @@ function App() {
   fetchData()
   
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/signUp" />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/signIn" element={<SignIn />} />
-        {/* Add other routes here */}
-      </Routes>
-    </Router>
+    // <Router>
+    //   <Routes>
+    //     <Route path="/" element={<Navigate to="/signUp" />} />
+    //     <Route path="/signUp" element={<SignUp />} />
+    //     <Route path="/signIn" element={<SignIn />} />
+    //     {/* Add other routes here */}
+    //   </Routes>
+    // </Router>
+    <Home/>
 
    
     

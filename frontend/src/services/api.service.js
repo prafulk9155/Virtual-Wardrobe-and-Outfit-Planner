@@ -1,6 +1,4 @@
-
-
-const BASE_URL = "http://192.168.96.242:5000/" // Replace with your API base URL
+const BASE_URL = "http://192.168.41.242:5000/" // Replace with your API base URL
 // const BASE_URL = "http://localhost:5000/api/";
 // Function to handle HTTP GET requests
 export const get = async (endpoint) => {
