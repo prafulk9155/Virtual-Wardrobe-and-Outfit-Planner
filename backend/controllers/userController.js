@@ -1,27 +1,27 @@
-// controllers/userController.js
-
+const bcrypt = require('bcrypt');
 const pool = require('../config/database');
 
 exports.createUser = async (req, res) => {
     const { username, email, password, phone } = req.body.data;
 
     // Validate input
-    // if (!username || !email || !password || !phone) {
-    //     console.log(req.body.data,"req.body.data")
-    //     return res.status(400).json({ error: 'Please provide all required fields' });
-    // }
+    if (!username || !email || !password || !phone) {
+        return res.status(400).json({ error: 'Please provide all required fields' });
+    }
 
     try {
-        console.log(req.body.data,"req.body.data")
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         // Insert user into the database
         const [result] = await pool.execute(
-            'INSERT INTO users (username, email, password, phone,created_at,updated_at) VALUES (?, ?, ?, ?,NOW(),"")',
-            [username, email, password, phone]
+            'INSERT INTO users (username, email, password, phone, created_at, updated_at) VALUES (?, ?, ?, ?, NOW(), NOW())',
+            [username, email, hashedPassword, phone]
         );
 
         res.status(201).json({
             data: {
-                message:"Account Created Successfully !"
+                message: "Account Created Successfully!"
             }
         });
     } catch (error) {

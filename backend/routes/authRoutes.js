@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     res.send("Main outfit planner api !");
 });
 
-router.post('/register', register);
+// router.post('/register', register);
 router.post('/login', login);
 
 module.exports = router;
